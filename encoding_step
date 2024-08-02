@@ -1,0 +1,8 @@
+# this code will check X and Y variables to encode them.
+
+from sklearn.preprocessing import LabelEncoder
+label_encoder = LabelEncoder()
+for col in X.columns:
+    if X[col].dtype == 'object':
+        X[col] = label_encoder.fit_transform(X[col])
+Y = label_encoder.fit_transform(Y)
